@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS Books (
+                                     id INT AUTO_INCREMENT PRIMARY KEY,
+                                     title VARCHAR2,
+                                     author VARCHAR2,
+                                     quantity INT
+);
+CREATE TABLE IF NOT EXISTS Readers (
+                                       id INT AUTO_INCREMENT PRIMARY KEY,
+                                       name VARCHAR2,
+    lastname varchar2,
+                                       email VARCHAR2
+);
+CREATE TABLE IF NOT EXISTS Book_Reader (
+                                           book_id INT,
+                                           reader_id INT,
+                                           FOREIGN KEY (book_id) REFERENCES Books(id),
+                                           FOREIGN KEY (reader_id) REFERENCES Readers(id)
+);
